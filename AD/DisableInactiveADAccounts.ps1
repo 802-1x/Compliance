@@ -18,7 +18,8 @@ $Date = Get-Date $Date -Format "MM/dd/yyyy HH:mm:ss"
 $OUpath = 'OU1'
 $2Weeks = (Get-Date).AddDays(-14)
 $2Weeks = Get-Date $2Weeks -Format "MM/dd/yyyy HH:mm:ss"
-$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+#$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le $2Weeks)} | where {($_.whencreated -le "$2Weeks" -or $_.whenChanged -le "$2Weeks")}
 
 if ( Test-Path -Path C:\Scripts\ADContractors.csv ) { Remove-Item C:\Scripts\ADContractors.csv }
 $ADUsers | Export-CSV C:\Scripts\ADContractors.csv -NoTypeInformation
@@ -61,7 +62,8 @@ $Date = Get-Date $Date -Format "MM/dd/yyyy HH:mm:ss"
 $OUpath = 'OU2'
 $2Weeks = (Get-Date).AddDays(-14)
 $2Weeks = Get-Date $2Weeks -Format "MM/dd/yyyy HH:mm:ss"
-$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks")}
+#$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le $2Weeks)} | where {($_.whencreated -le "$2Weeks" -or $_.whenChanged -le "$2Weeks")}
 
 if ( Test-Path -Path C:\Scripts\ADVendors.csv ) { Remove-Item C:\Scripts\ADVendors.csv }
 $ADUsers | Export-CSV C:\Scripts\ADVendors.csv -NoTypeInformation
@@ -104,7 +106,8 @@ $Date = Get-Date $Date -Format "MM/dd/yyyy HH:mm:ss"
 $OUpath = 'OU3'
 $2Weeks = (Get-Date).AddDays(-14)
 $2Weeks = Get-Date $2Weeks -Format "MM/dd/yyyy HH:mm:ss"
-$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks")}
+#$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le $2Weeks)} | where {($_.whencreated -le "$2Weeks" -or $_.whenChanged -le "$2Weeks")}
 
 if ( Test-Path -Path C:\Scripts\ADOwners.csv ) { Remove-Item C:\Scripts\ADOwners.csv }
 $ADUsers | Export-CSV C:\Scripts\ADOwners.csv -NoTypeInformation
@@ -147,7 +150,8 @@ $Date = Get-Date $Date -Format "MM/dd/yyyy HH:mm:ss"
 $OUpath = 'OU4'
 $2Weeks = (Get-Date).AddDays(-14)
 $2Weeks = Get-Date $2Weeks -Format "MM/dd/yyyy HH:mm:ss"
-$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks")}
+#$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le $2Weeks)} | where {($_.whencreated -le "$2Weeks" -or $_.whenChanged -le "$2Weeks")}
 
 if ( Test-Path -Path C:\Scripts\ADService.csv ) { Remove-Item C:\Scripts\ADService.csv }
 $ADUsers | Export-CSV C:\Scripts\ADService.csv -NoTypeInformation
@@ -189,7 +193,8 @@ $Date = Get-Date $Date -Format "MM/dd/yyyy HH:mm:ss"
 $OUpath = 'OU5'
 $2Weeks = (Get-Date).AddDays(-14)
 $2Weeks = Get-Date $2Weeks -Format "MM/dd/yyyy HH:mm:ss"
-$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks")}
+#$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le $2Weeks)} | where {($_.whencreated -le "$2Weeks" -or $_.whenChanged -le "$2Weeks")}
 
 if ( Test-Path -Path C:\Scripts\ADExternal.csv ) { Remove-Item C:\Scripts\ADExternal.csv }
 $ADUsers | Export-CSV C:\Scripts\ADExternal.csv -NoTypeInformation
@@ -231,7 +236,8 @@ $Date = Get-Date $Date -Format "MM/dd/yyyy HH:mm:ss"
 $OUpath = 'OU6'
 $2Weeks = (Get-Date).AddDays(-14)
 $2Weeks = Get-Date $2Weeks -Format "MM/dd/yyyy HH:mm:ss"
-$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks")}
+#$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le "$Date")} | where {($_.lastlogondate -ne $null -and $_.whencreated -le "$2Weeks" -and $_.whenChanged -le "$2Weeks")}
+$ADUsers = Get-ADUser -filter 'enabled -eq "true"' -Properties lastLogonDate, whencreated, description -SearchBase $OUPath | where {($_.lastlogondate -le $2Weeks)} | where {($_.whencreated -le "$2Weeks" -or $_.whenChanged -le "$2Weeks")}
 
 if ( Test-Path -Path C:\Scripts\ADProcessSystems.csv ) { Remove-Item C:\Scripts\ADProcessSystems.csv }
 $ADUsers | Export-CSV C:\Scripts\ADProcessSystems.csv -NoTypeInformation
