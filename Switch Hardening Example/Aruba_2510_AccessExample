@@ -1,0 +1,24 @@
+console inactivity-timer 60
+radius-server host x.x.x.x key "x.x.x.x"
+radius-server retransmit 1
+timesync sntp
+sntp unicast
+tacacs-server host x.x.x.x key "x.x.x.x"
+no telnet-server
+time timezone 600
+no web-management
+ip authorized-managers x.x.x.x y.y.y.y access manager
+no snmp-server community "public" Unrestricted
+snmp-server community "xxxx" operator unrestricted
+snmp-server community "xxxx" operator
+aaa authentication num-attempts 10
+aaa authentication login privilege-mode
+aaa authentication ssh login tacacs
+aaa authentication ssh enable tacacs
+aaa authentication port-access eap-radius
+aaa port-access authenticator active
+spanning-tree
+ip ssh
+no tftp server
+sntp server x.x.x.x
+password manager
