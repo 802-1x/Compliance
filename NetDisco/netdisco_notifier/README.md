@@ -1,0 +1,3 @@
+This repo is for the netdisco notifier python scripts. The script reads from a config file, gets different reports from netdisco, and sends emails depending on the notification level settings for each report.
+
+The notifier has multiple different notification levels, which are run at different times in the crontab task scheduler: -all (sends all reports, never run by crontab) -immediate (sends important reports for things that likely require immediate action, run frequently by crontab) -historical (sends reports that we are interested in, but likely do NOT require immediate action, run infrequently by crontab) -none (this report won't get sent unless forced by the all command line option, never run by crontab)
