@@ -1,0 +1,43 @@
+{
+  "DEBUG": false,
+  "email": {
+    "from_address": "netdisco@test",
+    "smtp_server": "SMTPSERVER",
+    "to_address": "_NetworkNotifications@test"
+  },
+  "login_payload": {
+    "password": "pass",
+    "username": "user"
+  },
+  "login_url": "http://netdisco:5000/login",
+  "reports_of_interest": {
+    "duplex_mismatch": {
+      "name": "Duplex Mismatch",
+      "url": "http://netdisco:5000/ajax/content/report/duplexmismatch?",
+      "human_readable": "Port {0} in switch {1} is running at {2}, but port {3} in switch {4} is running at {5}",
+      "csv_column_order": [1,0,2,4,3,5],
+      "notify": "immediate"
+    },
+    "port_utilisation": {
+      "name": "Port Utilisation",
+      "human_readable": "Device {0} only has {1} free ports",
+      "csv_column_order": [0,4],
+      "url": "http://netdisco:5000/ajax/content/report/portutilization?age_num=3&age_unit=months",
+      "notify": "historic"
+    },
+    "port_vlan_mismatch": {
+      "name": "Port VLAN Mismatch",
+      "human_readable": "Port {0} in switch {1} has mismatch VLANs with port {2} in switch {3}",
+      "csv_column_order": [1,0,4,3],
+      "url": "http://netdisco:5000/ajax/content/report/portvlanmismatch?",
+      "notify": "historic"
+    },
+    "ports_that_are_blocking": {
+      "name": "Ports that are Blocking",
+      "human_readable": "Device {0} is {1} on port {2} ({3})",
+      "csv_column_order": [0,3,1,2],
+      "url": "http://netdisco:5000/ajax/content/report/portblocking?",
+      "notify": "historic"
+    }
+  }
+}
