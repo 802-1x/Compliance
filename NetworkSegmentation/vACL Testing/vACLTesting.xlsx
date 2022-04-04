@@ -1,0 +1,9 @@
+FriendlyName	IP	Port
+DC1	x.x.x.x	3389
+CCTV Server	x.x.x.x	10001
+CCTV_Blind	x.x.x.x	3389
+File Share	x.x.x.x	
+IT SMB_Blind	x.x.x.x	445
+Internet	8.8.8.8	
+InternetDNS1	9.9.9.9	
+InternetDNS2	1.1.1.2	
