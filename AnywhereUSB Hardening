@@ -1,0 +1,19 @@
+https://www.digi.com/resources/documentation/digidocs/90002383/default.htm#device/anywhereusbplus/content/container/cont_getting_started.htm%3FTocPath%3DGet%2520started%7C_____0
+
+Install onto your network attached device. I haven't tested this next assumption, but it looks like it will pick up devices on your local subnet. So the hub (pictured below) needs to be on the network with DHCP address for configuration.
+
+Design Intent: one physical device per production network. If routing/L3 core fail, production servers should still be able to contact their licensing USB.
+
+1) Record Name, IP, Serial and MAC in Password Manager
+2) Update Firmware
+3) Change password and update Password Manager
+4) Re-IP as required
+5) Add Device name, Contact and Location to system settings
+6) Add ping responder ACL so only management network can ping (Under Configuration -> Services)
+7) Disable Central Management (Under Configuration -> Services)
+8) Disable modem (Under Configuration -> Modem)
+9) Enable Web Administration ACL for management network (Under Configuration -> Services -> Web Administration)
+10) Enable SSH ACL for management network (Under Configuration -> Services -> Web Administration)
+11) Disable mDNS for Web Administration (Under Configuration -> Services)
+12) Disable mDNS for SSH (Under Configuration -> Services)
+13) Disable mDNS Service Discovery (Under Configuration -> Services)
