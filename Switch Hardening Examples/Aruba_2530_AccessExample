@@ -1,0 +1,62 @@
+console idle-timeout 900
+console idle-timeout serial-usb 900
+radius-server host x.x.x.x key "xxxx"
+radius-server host x.x.x.x dyn-authorization
+radius-server retransmit 1
+timesync sntp
+sntp unicast
+sntp server priority 1 x.x.x.x
+sntp server priority 2 x.x.x.x
+tacacs-server host x.x.x.x key "xxxx"
+no telnet-server
+time daylight-time-rule user-defined begin-date 10/01 end-date 04/01
+time timezone 600
+no web-management
+ip authorized-managers x.x.x.x x.x.x.x access manager
+ip default-gateway x.x.x.x
+no snmp-server community "public"
+snmp-server community "xxxx" operator unrestricted
+snmp-server community "xxxx" operator
+snmp-server host x.x.x.x community "xxxx"
+aaa authentication num-attempts 10
+aaa authentication lockout-delay 30
+aaa authentication login privilege-mode
+aaa authentication ssh login local
+aaa authentication ssh enable local
+aaa authentication port-access eap-radius
+aaa port-access authenticator active
+spanning-tree
+no tftp server
+no dhcp config-file-update
+no dhcp image-file-update
+no dhcp tr69-acs-url
+password manager
+password operator
+
+Switch Specific Code
+--------------------
+snmp-server contact "xxxx" location "xxxx"
+no stack
+
+SNMPv3 Test Code
+----------------
+snmpv3 enable
+pwdexample
+n
+y
+snmpv3 user xxxswtsnmpv3usr auth sha <pwd from PM> priv aes <pwd from PM>
+snmpv3 group managerpriv user xxxswtsnmpv3usr sec-model ver3
+no snmpv3 user initial
+no snmp-server community "xxxx" operator unrestricted
+no snmp-server community "xxxx" operator
+
+Miscallaneous
+-------------
+#How to remove telnet configuration from existing implementations
+aaa authentication telnet enable local
+aaa authentication telnet login local
+
+!Investigate applicability of scope
+aaa accounting commands stop-only tacacs
+aaa accounting exec start-stop tacacs
+aaa accounting system start-stop tacacs
