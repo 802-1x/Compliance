@@ -28,8 +28,20 @@ Start-Process -NoNewWindow -FilePath "$fileExecutable" -ArgumentList "--healthch
 # Load XML from file for analysis
 $xml = [xml](Get-Content -Path "C:\Users\<redacted>\Downloads\PingCastle_2.10.1.1\<redacted>.xml")
 
-$xml.HealthCheckData.GlobalScore
-$xml.EngineVersion
-$xml.
 
 $latestReleaseName
+$xml.HealthCheckData.EngineVersion
+
+
+$xml.HealthCheckData.DomainFQDN
+$xml.HealthCheckData.GlobalScore
+$xml.HealthCheckData.StaleObjectsScore
+$xml.HealthCheckData.PrivilegiedGroupScore
+$xml.HealthCheckData.TrustScore
+$xml.HealthCheckData.AnomalyScore
+
+$xml.HealthcheckData.RiskRules.HealthcheckRiskRule | where Category -eq "StaleObjects"
+$xml.HealthcheckData.RiskRules.HealthcheckRiskRule | where Category -eq "PrivilegedAccounts"
+$xml.HealthcheckData.RiskRules.HealthcheckRiskRule | where Category -eq "Trust"
+$xml.HealthcheckData.RiskRules.HealthcheckRiskRule | where Category -eq "Anomalies"
+
