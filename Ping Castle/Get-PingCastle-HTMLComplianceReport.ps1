@@ -1,6 +1,10 @@
 
 
 
+
+#WIP code to perform basic AD security posture audit using the Ping Castle tool
+
+
 $url = "https://github.com/vletoux/pingcastle/releases/latest"
 
 # Send a GET request to the URL
